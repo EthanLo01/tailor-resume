@@ -1,0 +1,22 @@
+# Optional — install to enable cloud RAG persistence and semantic embeddings
+# Usage: pip install -r requirements-optional.txt
+
+# Pinecone cloud vector store (primary RAG backend)
+pinecone>=3.0
+
+# OpenAI text-embedding-3-small (semantic search; falls back to TF-IDF if absent)
+openai>=1.0
+
+# MCP server (Claude Code plugin -- exposes pipeline as tools)
+mcp>=1.0
+
+# FastAPI browser UI (api_server.py)
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+
+# Cover letter DOCX export
+python-docx>=1.1
+
+# GitHub API calls (vault_client, github_ingester)
+httpx>=0.27
