@@ -116,22 +116,21 @@ SQL migrations are in `migrations/` (plain `.sql` files, applied manually or via
 
 ### Resume Source Material
 
-- **Detailed profile (master)**: `D:\chi\Project\Job_Search\Jobs List_v2.csv`
-  - Contains full work history, internships, education, skills, and projects with short/detailed variants per role.
-  - Use as the primary artifact input (`--artifact "...":blob`) when running the pipeline.
-- **Fixtures copy**: copy to `fixtures/ethan_profile.csv` before running CLI so paths stay relative.
+- Place your master profile at `fixtures/my_profile.csv` (gitignored) before running the CLI.
+- Use as the primary artifact input (`--artifact "...":blob`) when running the pipeline.
 
 ### Template
 
 - Use `.claude/skills/tailor-resume/templates/resume_template.tex` (project native, Jake's Resume base).
-- Always include a **Summary section** — current title (Bank Loan Administration) does not match quant/tech JDs, so Summary is required to reframe positioning.
+- Always include a **Summary section** when your current title does not match the target JD — Summary is required to reframe positioning.
 - Output tailored `.tex` files to `out/` with descriptive names, e.g. `out/resume_quant_dev.tex`.
 
 ### Compilation
 
-- No local `pdflatex` installed. Upload `.tex` to Overleaf (pdfLaTeX compiler) to generate PDF.
+- Run `python .claude/skills/tailor-resume/scripts/pdf_compiler.py out/<name>.tex` to compile PDF.
+- Requires Docker Desktop (image built automatically on first run).
 
 ### ATS Threshold Policy
 
 - Do not generate a resume if initial ATS < 50.
-- Report honest ceiling when core JD requirements (e.g. C++, Linux, low latency) are absent from authentic experience.
+- Report honest ceiling when core JD requirements are absent from authentic experience.
